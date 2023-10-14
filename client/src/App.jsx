@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import axios from "axios";
-
+import DataComponent from "./components/Jocks";
 function App() {
   const [jokes, setJokes] = useState([]);
   useEffect(() => {
@@ -12,16 +12,13 @@ function App() {
   }, []);
 
   return (
-    <>
-      <h1>React</h1>
+    <div className="w-full bg-opacity-90 flex flex-col justify-center text-center">
+      <h1 className="font-bold text-3xl text-red-700 fixed top-0">
+        Random Jocks
+      </h1>
       <p>jokes: {jokes.length}</p>
-      {jokes.map((joke) => (
-        <div key={joke.id}>
-          <h3>{joke.title}</h3>
-          <p>{joke.joke}</p>
-        </div>
-      ))}
-    </>
+      <DataComponent data={jokes} />;
+    </div>
   );
 }
 
